@@ -1,0 +1,37 @@
+---
+import { Sprite } from 'astro-icon'
+
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props as Props
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Sprite.Provider>
+      <slot />
+    </Sprite.Provider>
+    <style is:global>
+      ::-webkit-scrollbar {
+        @apply w-3;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        @apply rounded-sm bg-slate-800 hover:bg-slate-700;
+      }
+
+      ::-webkit-scrollbar-track {
+        @apply bg-slate-900;
+      }
+    </style>
+  </body>
+</html>

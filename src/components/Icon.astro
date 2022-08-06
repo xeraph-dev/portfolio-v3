@@ -1,0 +1,29 @@
+---
+import { Sprite } from 'astro-icon'
+
+interface Props {
+  pack: any
+  name: any
+  size?: 'small' | 'normal' | 'large'
+}
+
+const { name, pack, size = 'normal' } = Astro.props as Props
+---
+
+<span class={size}>
+  <Sprite {pack} {name} />
+</span>
+
+<style>
+  .small [astro-icon] {
+    @apply h-4 w-4;
+  }
+
+  .normal [astro-icon] {
+    @apply h-6 w-6;
+  }
+
+  .large [astro-icon] {
+    @apply h-8 w-8;
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import Icon from './Icon.astro'
+import Card from './Card.astro'
+import { DateTime } from 'luxon'
+
+interface Props {
+  company: string
+  skills: string[]
+  web?: string
+  startDate: Date
+  endDate: Date
+}
+
+const { company, endDate, skills, startDate, web } = Astro.props as Props
+
+const interval = DateTime.fromJSDate(startDate).until(
+  DateTime.fromJSDate(endDate),
+)
+
+const { months, years } = interval.toDuration(['years', 'months']).toObject()
+const time = `${
+  years && years >= 1 ? `${Math.floor(years)} year${years > 1 ? 's' : ''}` : ''
+}${years && years >= 1 && months && months >= 1 ? ' and ' : ''}${
+  months && months >= 1
+    ? `${Math.ceil(months)} month${months > 1 ? 's' : ''}`
+    : ''
+}`
+---
+
+<Card className="flex gap-3 p-3">
+  <header class="flex gap-6 items-center justify-between">
+    <h4 class="text-lg">{company}</h4>
+    <div class="flex gap-3">
+      {web && (
+        <a href={web} target="_blank">
+          <Icon pack="mdi" name="link" />
+        </a>
+      )}
+    </div>
+  </header>
+  <span class="flex gap-2">
+    {startDate.getFullYear() === endDate.getFullYear() ? (
+      <span>{endDate.getFullYear()}</span>
+    ) : (
+      <span>
+        {startDate.getFullYear()} - {endDate.getFullYear()}
+      </span>
+    )}
+    |
+    <span>
+      {time}
+    </span>
+  </span>
+  <footer>
+    <ul class="flex gap-2 flex-wrap">
+      {skills.map(skill => (
+        <li>
+          <Icon pack="simple-icons" name={skill} size="small" />
+        </li>
+      ))}
+    </ul>
+  </footer>
+</Card>
