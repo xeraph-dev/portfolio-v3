@@ -1,13 +1,209 @@
 ---
 import Layout from '~/layouts/Layout.astro'
+import { Code } from 'astro/components'
 ---
 
 <Layout title="ArchLinux Installation">
-  <div class="container p-2">
-    <h1 class="text-center text-3xl px-4 py-2">ArchLinux Installation</h1>
-    <div>
-      <h4 class="text-gray-400">Check if your boot with UEFI</h4>
-      <code>ls /sys/firmware/efi/efivars</code>
-    </div>
+  <div class="max-w-screen-lg m-auto p-2">
+    <h1 class="text-center text-3xl px-4 pt-2 pb-10">ArchLinux Installation</h1>
+    <section class="flex flex-col gap-5">
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Check if your boot with UEFI</h4>
+        <Code lang="shell" code="ls /sys/firmware/efi/efivars" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Check internet conection</h4>
+        <Code lang="shell" code="ping -c 4 archlinux.org" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Update system clock</h4>
+        <Code lang="shell" code="date && timedatectl set-ntp true && date" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Check the disk to partition</h4>
+        <Code lang="shell" code="lsblk" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Partitioning disk</h4>
+        <Code lang="shell" code="cfdisk" />
+        <span class="font-bold text-gray-400">
+          Select the partition table type (recommended GPT) (If the disk has a
+          partition table, this don't appear)
+        </span>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Partition table example</h4>
+        <div class="overflow-x-auto relative">
+          <table class="text-left text-sm rounded-md overflow-hidden">
+            <thead
+              class="text-xs uppercase text-gray-300 bg-indigo-900 border-b border-amber-700"
+            >
+              <tr>
+                <th scope="col" class="py-3 px-6">Device</th>
+                <th scope="col" class="py-3 px-6">Size</th>
+                <th scope="col" class="py-3 px-6">Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-gray-800">
+                <th scope="row" class="py-4 px-6"> /dev/sdx1</th>
+                <td class="py-4 px-6">550M</td>
+                <td class="py-4 px-6">EFI</td>
+              </tr>
+              <tr class="bg-gray-800">
+                <th scope="row" class="py-4 px-6"> /dev/sdx2</th>
+                <td class="py-4 px-6">2xRAM</td>
+                <td class="py-4 px-6">SWAP</td>
+              </tr>
+              <tr class="bg-gray-800">
+                <th scope="row" class="py-4 px-6"> /dev/sdx3</th>
+                <td class="py-4 px-6">Remaining (at least 20GB)</td>
+                <td class="py-4 px-6">Linux filesystem</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <span class="font-bold text-gray-400">
+          When finish, select
+          <mark class="bg-gray-700 text-gray-300 rounded-md px-2 py-1 shadow-sm"
+            >Write
+          </mark>
+        </span>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Formatting partitions created</h4>
+        <Code
+          lang="shell"
+          code={`\
+# EFI
+mkfs.fat -F32 /dev/sdx1
+
+# SWAP
+mkswap /dev/sdx2
+swapon /dev/sdx2
+
+# Root
+mkfs.ext4 /dev/sdx3\
+          `}
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Mount filesystem</h4>
+        <Code
+          lang="shell"
+          code={`\
+# Root
+mount /dev/sdx3 /mnt
+
+# Efi
+mkdir /mnt/boot/efi -p
+mount /dev/sdx1 /mnt/boot/efi\
+          `}
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Add custom repo to mirrorlist</h4>
+        <Code
+          lang="shell"
+          code={`\
+cat <<\\EOF > /etc/pacman.d/mirrorlist
+Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
+Server = https://mirrors.mit.edu/archlinux/$repo/os/$arch
+EOF\
+        `}
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Install base packages</h4>
+        <Code
+          lang="shell"
+          code="pacstrap /mnt base linux linux-firmware neovim git"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Generate filesystem tab</h4>
+        <Code lang="shell" code="genfstab -U /mnt >> /mnt/etc/fstab" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Change root path</h4>
+        <Code lang="shell" code="arch-chroot /mnt" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Configure timezone</h4>
+        <Code
+          lang="shell"
+          code="ln -sf /usr/share/zoneinfo/Region/City /etc/localtime && hwclock --systohc && date"
+        />
+        <span class="font-bold text-gray-400">Example: America/Havana</span>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Configure language</h4>
+        <span class="font-bold text-gray-400"
+          >In /etc/locale.gen uncomment languages to use
+        </span>
+        <Code
+          lang="shell"
+          code="locale-gen && echo LANG=lang_Country.UTF-8 > /etc/locale.conf"
+        />
+        <ul class="list-disc list-inside pl-2">
+          <li>Spanish: es_ES</li>
+          <li>English: en_US</li>
+        </ul>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Configure hostname</h4>
+        <Code lang="shell" code="echo your_hostname > /etc/hostname" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Configure hosts</h4>
+        <Code
+          lang="shell"
+          code={`\
+cat <<\\EOF > /etc/hosts
+127.0.0.1 	localhost
+::1 		localhost
+EOF\
+        `}
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Install and enable NetworkManager</h4>
+        <span class="font-bold text-gray-400"
+          >Configure custom repo server again
+        </span>
+        <Code
+          lang="shell"
+          code="pacman -S networkmanager && systemctl enable NetworkManager"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Set a root password</h4>
+        <Code lang="shell" code="passwd" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Configure bootloader</h4>
+        <Code
+          lang="shell"
+          code="pacman -S grub efibootmgr && grub-install --target=x86_64-efi --efi-directory=/boot/efi"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Configure grub</h4>
+        <Code
+          lang="shell"
+          code={`\
+neovim /etc/default/grub
+
+# Change this key
+GRUB_CMDLINE_LINUX_DEFAULT="text"\
+          `}
+        />
+        <Code lang="shell" code="grub-mkconfig -o /boot/grub/grub.cfg" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h4 class="text-gray-400">Reboot</h4>
+        <Code lang="shell" code="exit && umount -R /mnt && reboot" />
+      </div>
+    </section>
   </div>
 </Layout>
