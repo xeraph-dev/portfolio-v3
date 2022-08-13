@@ -39,10 +39,15 @@ try:
     layout["title"] = "Vscode Extensions | Adrian Lopez Portfolio"
 
     h1 = Tag(name="h1")
-    h1["class"] = "text-center text-3xl px-4 py-2"
+    h1["class"] = "container p-2 text-center text-3xl px-4 py-2"
     h1.append("Visual Studio Code extensions")
-
     layout.append(h1)
+
+    img = Tag(name="img")
+    img["class"] = "container p-2 flex rounded-2xl"
+    img["src"] = "https://raw.githubusercontent.com/adrianrl99/dotfiles/main/screenshots/vscode.png"
+    img["alt"] = "vscode screenshot"
+    layout.append(img)
 
     for k, v in ext.items():
         section = Tag(name="Section")
