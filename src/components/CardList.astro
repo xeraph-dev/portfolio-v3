@@ -1,0 +1,18 @@
+---
+interface Props {
+  size: '3' | '4' | '5'
+}
+
+const { size } = Astro.props as Props
+
+let cols = ''
+
+if (+size >= 2) cols += cols.split(' ').concat('sm:grid-cols-2').join(' ')
+if (+size >= 3) cols += cols.split(' ').concat('md:grid-cols-3').join(' ')
+if (+size >= 4) cols += cols.split(' ').concat('lg:grid-cols-4').join(' ')
+if (+size >= 5) cols += cols.split(' ').concat('xl:grid-cols-5').join(' ')
+---
+
+<ul class:list={['grid justify-center gap-4', cols]}>
+  <slot />
+</ul>

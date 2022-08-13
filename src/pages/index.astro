@@ -1,8 +1,7 @@
 ---
 import Card from '~/components/Card.astro'
+import CardList from '~/components/CardList.astro'
 import Icon from '~/components/Icon.astro'
-import Navbar from '~/components/Navbar.astro'
-import NavLink from '~/components/NavLink.astro'
 import ProjectCard from '~/components/ProjectCard.astro'
 import Section from '~/components/Section.astro'
 import WorkCard from '~/components/WorkCard.astro'
@@ -10,506 +9,424 @@ import Layout from '~/layouts/Layout.astro'
 ---
 
 <Layout title="Adrian Lopez Portfolio">
-  <main
-    class="bg-slate-900 min-h-screen text-slate-300 flex flex-col items-center gap-4"
+  <section
+    id="about"
+    class="container p-2 py-20 flex justify-center items-center flex-col gap-1"
   >
-    <Navbar>
-      <ul class="gap-2 flex">
-        <li>
-          <NavLink href="#about">About</NavLink>
-        </li>
-        <li>
-          <NavLink href="#skills">Skills</NavLink>
-        </li>
-        <li>
-          <NavLink href="#projects">Projects</NavLink>
-        </li>
-        <li>
-          <NavLink href="#work">Work</NavLink>
-        </li>
-      </ul>
-      <div class="px-2">
-        <a href="https://github.com/adrianrl99/portfolio-v3" target="_blank">
-          <Icon pack="simple-icons" name="github" />
-        </a>
-      </div>
-    </Navbar>
-    <section
-      id="about"
-      class="container p-2 py-20 flex justify-center items-center flex-col gap-1"
-    >
-      <span class="text-3xl">I am Adrian López</span>
-      <span class="text-2xl"
-        ><span class="text-indigo-600 font-bold">Front-end</span> developer
-      </span>
-      <span class="text-xl text-center"
-        ><span class="text-cyan-600 font-bold">Self-taught</span> and enthusiastic
-        programmer
-      </span>
-      <span class="text-xl"> Functional programming lover</span>
-      <span class="text-xl">ArchLinux user</span>
-    </section>
-    <Section id="skills" title="Knowledge">
-      <ul
-        class="grid justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
-      >
-        <li>
-          <Card>
-            <h3 class="text-xl p-1">Languages</h3>
-            <ul class="grid grid-cols-3 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="html5" size="large" /> Html5
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="css3" size="large" /> Css3
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="javascript" size="large" /> JavaScript
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="typescript" size="large" /> TypeScript
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="haskell" size="large" /> Haskell
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="rust" size="large" /> Rust
-              </li>
-            </ul>
-          </Card>
-        </li>
-        <li>
-          <Card>
-            <h3 class="text-xl p-1">Css utilities</h3>
-            <ul class="grid grid-cols-2 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="sass" size="large" /> Sass
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="postcss" size="large" /> Postcss
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="bootstrap" size="large" /> Bootstrap
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="tailwindcss" size="large" /> Tailwindcss
-              </li>
-            </ul>
-          </Card>
-        </li>
-        <li>
-          <Card>
-            <h3 class="text-xl p-1">Front-end</h3>
-            <ul class="grid grid-cols-3 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="react" size="large" /> React.js
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="nextdotjs" size="large" /> Next.js
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="astro" size="large" /> Astro
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="vuedotjs" size="large" /> Vue.js
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="nuxtdotjs" size="large" /> Nuxt.js
-              </li>
-            </ul>
-          </Card>
-        </li>
-        <li>
-          <Card>
-            <h3 class="text-xl p-1">Back-end</h3>
-            <ul class="grid grid-cols-2 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="nodedotjs" size="large" /> Node.js
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="express" size="large" /> Express.js
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="nextdotjs" size="large" /> Next.js
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="nuxtdotjs" size="large" /> Nuxt.js
-              </li>
-            </ul>
-          </Card>
-        </li>
-        <li>
-          <Card>
-            <h3 class="text-xl p-1">UI Framework</h3>
-            <ul class="grid grid-cols-3 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="materialui" size="large" /> Material-UI
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="chakraui" size="large" /> Charka-UI
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="vuetify" size="large" /> Vuetify
-              </li>
-            </ul>
-          </Card>
-        </li>
-        <li>
-          <Card>
-            <h3 class="text-xl p-1">State</h3>
-            <ul class="grid grid-cols-1 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="redux" size="large" /> Redux
-              </li>
-            </ul>
-          </Card>
-        </li>
-        <li>
-          <Card>
-            <h3 class="text-xl p-1">Deploy</h3>
-            <ul class="grid grid-cols-1 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="vercel" size="large" /> Vercel
-              </li>
-            </ul>
-          </Card>
-        </li>
-        <li>
-          <Card>
-            <h3 class="text-xl p-1">SCM</h3>
-            <ul class="grid grid-cols-2 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="git" size="large" /> Git
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="github" size="large" /> GitHub
-              </li>
-            </ul>
-          </Card>
-        </li><li>
-          <Card>
-            <h3 class="text-xl p-1">Linux</h3>
-            <ul class="grid grid-cols-5 gap-3">
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="gnubash" size="large" /> Bash
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="docker" size="large" /> Docker
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="linux" size="large" /> Linux
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="ubuntu" size="large" /> Ubuntu
-              </li>
-              <li class="flex flex-col gap-1 items-center">
-                <Icon pack="simple-icons" name="archlinux" size="large" /> Arch
-              </li>
-            </ul>
-          </Card>
-        </li>
-      </ul>
-    </Section>
-    <Section id="projects" title="Projects">
-      <ul
-        class="grid justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
-      >
-        <li>
-          <ProjectCard
-            title="VM Translator"
-            repo="vm-translator"
-            skills={['haskell']}
-          >
-            A VM Translator for Hack VM
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Hack Assembler"
-            repo="hack-assembler"
-            skills={['haskell']}
-          >
-            An Assembler for Hack Assembly
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="CRUD example"
-            repo="very-small-crud-example"
-            skills={['javascript', 'nodedotjs', 'express']}
-          >
-            A very small CRUD example with express.js
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Space Invaders"
-            repo="space-invaders.rkt"
-            skills={['racket']}
-          >
-            Simple Space Invaders game written in Racket.
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Portfolio v2"
-            repo="portfolio"
-            web="https://v2.adrianlopez.site/"
-            skills={['html5', 'css3', 'react', 'postcss', 'vercel']}
-          >
-            Version 2 of my portfolio.
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Challenge accordion"
-            repo="challenge-accordion"
-            web="https://accordion-challenge.vercel.app/"
-            skills={[
-              'html5',
-              'css3',
-              'javascript',
-              'typescript',
-              'react',
-              'postcss',
-            ]}
-          />
-        </li>
-        <li>
-          <ProjectCard
-            title="Challenge vacations api"
-            skills={['javascript', 'typescript', 'nodedotjs', 'express']}
-            repo="challenge-vacations-api"
-          />
-        </li>
-        <li>
-          <ProjectCard
-            title="Full-stack interview"
-            repo="full-stack-interview"
-            skills={['html5', 'css3', 'javascript', 'typescript', 'react']}
-          />
-        </li>
-        <li>
-          <ProjectCard
-            title="Dual repo"
-            skills={['javascript', 'nodedotjs']}
-            repo="dual_repo"
-          >
-            An utility to update a repo from another repo
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Auth with tweetnacl"
-            skills={['html5', 'javascript', 'nodedotjs']}
-            repo="auth-with-tweetnacl"
-          >
-            Simple auth example with tweetnacl
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Client CRUD Challenge"
-            skills={[
-              'html5',
-              'css3',
-              'javascript',
-              'typescript',
-              'react',
-              'nextdotjs',
-              'material-ui',
-            ]}
-            repo="challenge-crud-students-admin"
-          >
-            Client of a CRUD application challenge
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Server CRUD Challenge"
-            skills={[
-              'javascript',
-              'typescript',
-              'nodedotjs',
-              'express',
-              'mongodb',
-            ]}
-            repo="challenge-crud-students-server"
-          >
-            Server of a CRUD application challenge
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Slidercards"
-            skills={[
-              'html5',
-              'css3',
-              'javascript',
-              'typescript',
-              'react',
-              'nextdotjs',
-              'styledcomponents',
-              'vercel',
-            ]}
-            repo="slidercards"
-            web="https://slidercards.vercel.app/"
-          >
-            Slidecards challenge
-          </ProjectCard>
-        </li><li>
-          <ProjectCard
-            title="BettyCook"
-            skills={['dart', 'flutter']}
-            repo="bettycook"
-          >
-            A recipe book
-          </ProjectCard>
-        </li>
-        <li>
-          <ProjectCard
-            title="Portfolio v1"
-            skills={[
-              'html5',
-              'css3',
-              'javascript',
-              'typescript',
-              'react',
-              'nextdotjs',
-              'material-ui',
-              'framer',
-              'vercel',
-            ]}
-            repo="porfolio"
-            web="https://v1.adrianlopez.site/"
-          >
-            My first portfolio
-          </ProjectCard>
-        </li>
-      </ul>
-    </Section>
-    <Section id="work" title="Work experience">
-      <ul class="grid justify-center sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <li>
-          <WorkCard
-            company="Divertimento"
-            startDate={new Date('2022-3')}
-            endDate={new Date(Date.now())}
-            web="https://github.com/divertimento"
-            skills={[
-              'html5',
-              'css3',
-              'javascript',
-              'typescript',
-              'react',
-              'vuedotjs',
-              'chakraui',
-              'nodedotjs',
-              'express',
-              'git',
-              'github',
-            ]}
-          />
-        </li>
-        <li>
-          <WorkCard
-            company="IJP Software"
-            startDate={new Date('2021-7')}
-            endDate={new Date('2022-7')}
-            web="https://github.com/IJPSoftware"
-            skills={[
-              'html5',
-              'css3',
-              'javascript',
-              'typescript',
-              'react',
-              'nextdotjs',
-              'vuedotjs',
-              'material-ui',
-              'chakraui',
-              'sass',
-              'redux',
-              'nodedotjs',
-              'express',
-              'git',
-              'github',
-              'gnubash',
-              'docker',
-            ]}
-          />
-        </li>
-        <li>
-          <WorkCard
-            company="Xetid"
-            startDate={new Date('2019-10')}
-            endDate={new Date('2021-8')}
-            web="https://www.xetid.cu/"
-            skills={[
-              'html5',
-              'css3',
-              'javascript',
-              'php',
-              'drupal',
-              'postgresql',
-              'linux',
-              'debian',
-            ]}
-          />
-        </li>
-      </ul>
-    </Section>
-    <footer class="container p-2 sticky top-0">
-      <div
-        class="bg-slate-300 py-2 px-4 shadow-lg bg-opacity-5 backdrop-blur-lg rounded-md w-full flex justify-between"
-      >
-        <ul class="flex gap-3">
-          <li>
-            <a href="https://github.com/adrianrl99" target="_blank"
-              ><Icon pack="simple-icons" name="github" />
-            </a>
-          </li>
-          <li>
-            <a href="https://t.me/fourblues" target="_blank"
-              ><Icon pack="simple-icons" name="telegram" />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/adrian-l%C3%B3pez/"
-              target="_blank"
-              ><Icon pack="simple-icons" name="linkedin" />
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/Adrianrlc" target="_blank">
-              <Icon pack="simple-icons" name="twitter" />
-            </a>
-          </li>
-        </ul>
-        <div class="flex gap-2 italic">
-          <span class="text-slate-400">Versions:</span>
-          <ul class="flex gap-2">
-            <li>
-              <a
-                class="text-amber-700"
-                href="https://v1.adrianlopez.site"
-                target="_blank"
-              >
-                v1
-              </a>
+    <span class="text-3xl">I am Adrian López</span>
+    <span class="text-2xl"
+      ><span class="text-indigo-600 font-bold">Front-end</span> developer
+    </span>
+    <span class="text-xl text-center"
+      ><span class="text-cyan-600 font-bold">Self-taught</span> and enthusiastic
+      programmer
+    </span>
+    <span class="text-xl">Functional programming lover</span>
+    <span class="text-xl">ArchLinux user</span>
+  </section>
+  <Section id="skills" title="Knowledge">
+    <CardList size="5">
+      <li>
+        <Card>
+          <h3 class="text-xl p-1">Languages</h3>
+          <ul class="grid grid-cols-3 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="html5" size="large" /> Html5
             </li>
-            <li>
-              <a
-                class="text-amber-700"
-                href="https://v2.adrianlopez.site"
-                target="_blank"
-              >
-                v2
-              </a>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="css3" size="large" /> Css3
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="javascript" size="large" /> JavaScript
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="typescript" size="large" /> TypeScript
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="haskell" size="large" /> Haskell
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="rust" size="large" /> Rust
             </li>
           </ul>
-        </div>
-      </div>
-    </footer>
-  </main>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h3 class="text-xl p-1">Css utilities</h3>
+          <ul class="grid grid-cols-2 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="sass" size="large" /> Sass
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="postcss" size="large" /> Postcss
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="bootstrap" size="large" /> Bootstrap
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="tailwindcss" size="large" /> Tailwindcss
+            </li>
+          </ul>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h3 class="text-xl p-1">Front-end</h3>
+          <ul class="grid grid-cols-3 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="react" size="large" /> React.js
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="nextdotjs" size="large" /> Next.js
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="astro" size="large" /> Astro
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="vuedotjs" size="large" /> Vue.js
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="nuxtdotjs" size="large" /> Nuxt.js
+            </li>
+          </ul>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h3 class="text-xl p-1">Back-end</h3>
+          <ul class="grid grid-cols-2 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="nodedotjs" size="large" /> Node.js
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="express" size="large" /> Express.js
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="nextdotjs" size="large" /> Next.js
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="nuxtdotjs" size="large" /> Nuxt.js
+            </li>
+          </ul>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h3 class="text-xl p-1">UI Framework</h3>
+          <ul class="grid grid-cols-3 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="materialui" size="large" /> Material-UI
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="chakraui" size="large" /> Charka-UI
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="vuetify" size="large" /> Vuetify
+            </li>
+          </ul>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h3 class="text-xl p-1">State</h3>
+          <ul class="grid grid-cols-1 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="redux" size="large" /> Redux
+            </li>
+          </ul>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h3 class="text-xl p-1">Deploy</h3>
+          <ul class="grid grid-cols-1 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="vercel" size="large" /> Vercel
+            </li>
+          </ul>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h3 class="text-xl p-1">SCM</h3>
+          <ul class="grid grid-cols-2 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="git" size="large" /> Git
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="github" size="large" /> GitHub
+            </li>
+          </ul>
+        </Card>
+      </li><li>
+        <Card>
+          <h3 class="text-xl p-1">Linux</h3>
+          <ul class="grid grid-cols-5 gap-3">
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="gnubash" size="large" /> Bash
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="docker" size="large" /> Docker
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="linux" size="large" /> Linux
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="ubuntu" size="large" /> Ubuntu
+            </li>
+            <li class="flex flex-col gap-1 items-center">
+              <Icon pack="simple-icons" name="archlinux" size="large" /> Arch
+            </li>
+          </ul>
+        </Card>
+      </li>
+    </CardList>
+  </Section>
+  <Section id="projects" title="Projects">
+    <CardList size="5">
+      <li>
+        <ProjectCard
+          title="VM Translator"
+          repo="vm-translator"
+          skills={['haskell']}
+        >
+          A VM Translator for Hack VM
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Hack Assembler"
+          repo="hack-assembler"
+          skills={['haskell']}
+        >
+          An Assembler for Hack Assembly
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="CRUD example"
+          repo="very-small-crud-example"
+          skills={['javascript', 'nodedotjs', 'express']}
+        >
+          A very small CRUD example with express.js
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Space Invaders"
+          repo="space-invaders.rkt"
+          skills={['racket']}
+        >
+          Simple Space Invaders game written in Racket.
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Portfolio v2"
+          repo="portfolio"
+          web="https://v2.adrianlopez.site/"
+          skills={['html5', 'css3', 'react', 'postcss', 'vercel']}
+        >
+          Version 2 of my portfolio.
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Challenge accordion"
+          repo="challenge-accordion"
+          web="https://accordion-challenge.vercel.app/"
+          skills={[
+            'html5',
+            'css3',
+            'javascript',
+            'typescript',
+            'react',
+            'postcss',
+          ]}
+        />
+      </li>
+      <li>
+        <ProjectCard
+          title="Challenge vacations api"
+          skills={['javascript', 'typescript', 'nodedotjs', 'express']}
+          repo="challenge-vacations-api"
+        />
+      </li>
+      <li>
+        <ProjectCard
+          title="Full-stack interview"
+          repo="full-stack-interview"
+          skills={['html5', 'css3', 'javascript', 'typescript', 'react']}
+        />
+      </li>
+      <li>
+        <ProjectCard
+          title="Dual repo"
+          skills={['javascript', 'nodedotjs']}
+          repo="dual_repo"
+        >
+          An utility to update a repo from another repo
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Auth with tweetnacl"
+          skills={['html5', 'javascript', 'nodedotjs']}
+          repo="auth-with-tweetnacl"
+        >
+          Simple auth example with tweetnacl
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Client CRUD Challenge"
+          skills={[
+            'html5',
+            'css3',
+            'javascript',
+            'typescript',
+            'react',
+            'nextdotjs',
+            'material-ui',
+          ]}
+          repo="challenge-crud-students-admin"
+        >
+          Client of a CRUD application challenge
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Server CRUD Challenge"
+          skills={[
+            'javascript',
+            'typescript',
+            'nodedotjs',
+            'express',
+            'mongodb',
+          ]}
+          repo="challenge-crud-students-server"
+        >
+          Server of a CRUD application challenge
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Slidercards"
+          skills={[
+            'html5',
+            'css3',
+            'javascript',
+            'typescript',
+            'react',
+            'nextdotjs',
+            'styledcomponents',
+            'vercel',
+          ]}
+          repo="slidercards"
+          web="https://slidercards.vercel.app/"
+        >
+          Slidecards challenge
+        </ProjectCard>
+      </li><li>
+        <ProjectCard
+          title="BettyCook"
+          skills={['dart', 'flutter']}
+          repo="bettycook"
+        >
+          A recipe book
+        </ProjectCard>
+      </li>
+      <li>
+        <ProjectCard
+          title="Portfolio v1"
+          skills={[
+            'html5',
+            'css3',
+            'javascript',
+            'typescript',
+            'react',
+            'nextdotjs',
+            'material-ui',
+            'framer',
+            'vercel',
+          ]}
+          repo="porfolio"
+          web="https://v1.adrianlopez.site/"
+        >
+          My first portfolio
+        </ProjectCard>
+      </li>
+    </CardList>
+  </Section>
+  <Section id="work" title="Work experience">
+    <CardList size="5">
+      <li>
+        <WorkCard
+          company="Divertimento"
+          startDate={new Date('2022-3')}
+          endDate={new Date(Date.now())}
+          web="https://github.com/divertimento"
+          skills={[
+            'html5',
+            'css3',
+            'javascript',
+            'typescript',
+            'react',
+            'vuedotjs',
+            'chakraui',
+            'nodedotjs',
+            'express',
+            'git',
+            'github',
+          ]}
+        />
+      </li>
+      <li>
+        <WorkCard
+          company="IJP Software"
+          startDate={new Date('2021-7')}
+          endDate={new Date('2022-7')}
+          web="https://github.com/IJPSoftware"
+          skills={[
+            'html5',
+            'css3',
+            'javascript',
+            'typescript',
+            'react',
+            'nextdotjs',
+            'vuedotjs',
+            'material-ui',
+            'chakraui',
+            'sass',
+            'redux',
+            'nodedotjs',
+            'express',
+            'git',
+            'github',
+            'gnubash',
+            'docker',
+          ]}
+        />
+      </li>
+      <li>
+        <WorkCard
+          company="Xetid"
+          startDate={new Date('2019-10')}
+          endDate={new Date('2021-8')}
+          web="https://www.xetid.cu/"
+          skills={[
+            'html5',
+            'css3',
+            'javascript',
+            'php',
+            'drupal',
+            'postgresql',
+            'linux',
+            'debian',
+          ]}
+        />
+      </li>
+    </CardList>
+  </Section>
 </Layout>

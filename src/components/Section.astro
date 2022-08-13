@@ -2,12 +2,16 @@
 interface Props {
   title: string
   id: string
+  className?: string
 }
 
-const { id, title } = Astro.props as Props
+const { className, id, title } = Astro.props as Props
 ---
 
-<section {id} class="py-20 container p-2 flex flex-col gap-8">
+<section
+  {id}
+  class:list={['py-20 container p-2 flex flex-col gap-8', className]}
+>
   <h2 class="text-2xl pl-6">{title}</h2>
   <slot />
 </section>

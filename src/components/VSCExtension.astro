@@ -1,0 +1,22 @@
+---
+import Card from './Card.astro'
+
+interface Props {
+  url: string
+  title: string
+  description: string
+  image: string
+}
+
+const { description, image, title, url } = Astro.props as Props
+---
+
+<a href={url}>
+  <Card>
+    <header class="flex gap-2 items-center">
+      <img src={image} class="h-auto w-8" />
+      <h3 class="text-xl">{title}</h3>
+    </header>
+    <div class="break-words">{description}</div>
+  </Card>
+</a>

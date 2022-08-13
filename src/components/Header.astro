@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro'
+import Navbar from './Navbar.astro'
+import NavLink from './NavLink.astro'
+---
+
+<Navbar>
+  <ul class="gap-2 flex">
+    <li>
+      <NavLink href="/#about">About</NavLink>
+    </li>
+    <li>
+      <NavLink href="/#skills">Skills</NavLink>
+    </li>
+    <li>
+      <NavLink href="/#projects">Projects</NavLink>
+    </li>
+    <li>
+      <NavLink href="/#work">Work</NavLink>
+    </li>
+  </ul>
+  <div class="px-2">
+    <a href="https://github.com/adrianrl99/portfolio-v3" target="_blank">
+      <Icon pack="simple-icons" name="github" />
+    </a>
+  </div>
+</Navbar>

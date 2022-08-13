@@ -1,0 +1,71 @@
+---
+import Icon from './Icon.astro'
+---
+
+<footer class="container p-2 flex flex-col gap-1">
+  <div>
+    <ul class="flex divide-x-2 divide-dotted divide-gray-400">
+      <li>
+        <a
+          href="https://github.com/adrianrl99/dotfiles"
+          class="px-2 text-amber-700"
+          >Dotfiles
+        </a>
+      </li>
+      <li>
+        <a href="/vscode-extensions" class="px-2 text-amber-700"
+          >Vscode extensions
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="bg-slate-300 py-2 px-4 shadow-lg bg-opacity-5 backdrop-blur-lg rounded-md w-full flex justify-between"
+  >
+    <ul class="flex gap-3">
+      <li>
+        <a href="https://github.com/adrianrl99" target="_blank"
+          ><Icon pack="simple-icons" name="github" />
+        </a>
+      </li>
+      <li>
+        <a href="https://t.me/fourblues" target="_blank"
+          ><Icon pack="simple-icons" name="telegram" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/adrian-l%C3%B3pez/" target="_blank"
+          ><Icon pack="simple-icons" name="linkedin" />
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/Adrianrlc" target="_blank">
+          <Icon pack="simple-icons" name="twitter" />
+        </a>
+      </li>
+    </ul>
+    <div class="flex gap-2 italic">
+      <span class="text-slate-400">Versions:</span>
+      <ul class="flex gap-2">
+        <li>
+          <a
+            class="text-amber-700"
+            href="https://v1.adrianlopez.site"
+            target="_blank"
+          >
+            v1
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-amber-700"
+            href="https://v2.adrianlopez.site"
+            target="_blank"
+          >
+            v2
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
