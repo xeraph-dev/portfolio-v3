@@ -36,6 +36,6 @@
   },
   "dependencies": {
     "astro-icon": "^0.7.3",
-    "luxon": "^3.0.1"
+    "luxon": "^3.2.1"
   }
 }
